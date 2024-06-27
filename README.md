@@ -17,6 +17,7 @@ const router = createBrowserRouter([
 ]);
 
 ```
+Note that loader is a function to fetch the data from api.
 in menu component, we consume loader with useLoaderData from react router dom.
 
 ```bash
