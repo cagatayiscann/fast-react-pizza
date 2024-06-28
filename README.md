@@ -25,7 +25,7 @@ in menu component, we consume loader with useLoaderData from react router dom.
 const menuData = useLoaderData();
 ```
 
-### Show order from orderId with new way
+### Getting orders with react router
 ```
 App.jsx
       {
