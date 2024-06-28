@@ -26,16 +26,20 @@ const menuData = useLoaderData();
 ```
 
 ### Getting orders with react router
-```
 App.jsx
+```
       {
         path: '/order/:orderId',
         element: <Order />,
         loader: loader,
       },
 ```
-```
 Order.jsx
+```
+function Order() {
+  const order = useLoaderData();
+......
+
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);
   return order;
