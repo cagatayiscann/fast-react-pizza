@@ -42,7 +42,7 @@ export async function loader({ params }) {
 }
 ```
 to get the id we normally use useParams hook but,
-useParams hook works on components not in regular components.
+useParams hook works on components not in regular functions.
 with react router loader function can receive params.
 
 Notice it is orderId because its how we call the url.
