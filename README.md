@@ -17,12 +17,35 @@ const router = createBrowserRouter([
 ]);
 
 ```
+
 Note that loader is a function to fetch the data from api.
 in menu component, we consume loader with useLoaderData from react router dom.
 
 ```bash
 const menuData = useLoaderData();
 ```
+
+### Show order from orderId with new way
+```
+App.jsx
+      {
+        path: '/order/:orderId',
+        element: <Order />,
+        loader: loader,
+      },
+```
+```
+Order.jsx
+export async function loader({ params }) {
+  const order = await getOrder(params.orderId);
+  return order;
+}
+```
+to get the id we normally use useParams hook but,
+useParams hook works on components not in regular components.
+with react router loader function can receive params.
+
+Notice it is orderId because its how we call the url.
 
 # Setaup and Start
 - npm install
