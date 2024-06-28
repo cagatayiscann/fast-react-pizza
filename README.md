@@ -49,7 +49,7 @@ export async function loader({ params }) {
 ```
 to get the id we normally use useParams hook but,
 useParams hook works on components not in regular functions.
-with react router loader function can receive params.
+Luckily loader function can receive params.
 
 ### React router's Form and action
 
@@ -66,7 +66,9 @@ export async function action({ request }) {
   .....
 }
 ```
-When Form is submitted, react router call action function and reques is submitted.
+Note that this Form is a special one which gets imported from react router dom.
+
+When Form is submitted, react router calls action function and request is submitted.
 So we can access to it.
 
 Then, we connect this action to the route
@@ -76,6 +78,9 @@ Then, we connect this action to the route
         action: createOrderAction,
       },
 ```
+
+lastly, cant use useNavigate in a function like the same logic above with the useParams.
+For that, react router has redirect. Check the code for details.
 
 # Setaup and Start
 - npm install
