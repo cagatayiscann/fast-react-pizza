@@ -7,6 +7,7 @@ A Fast pizza ordering app created by using React Router's data loading capabilit
 
 With v6.4, react router can fetch data into pages and submit data using forms.
 To be able to use these features, we need to declare createBrowserRouter outside the jsx.
+(imperative way not the old declarative way)
  ```bash
 const router = createBrowserRouter([
       {
@@ -39,6 +40,7 @@ Order.jsx
 function Order() {
   const order = useLoaderData();
 ......
+}
 
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);
@@ -49,7 +51,31 @@ to get the id we normally use useParams hook but,
 useParams hook works on components not in regular functions.
 with react router loader function can receive params.
 
-Notice it is orderId because its how we call the url.
+### React router's Form and action
+
+CreateOrder.jsx
+```
+function CreateOrder() {
+.....
+  <Form method="POST">
+......
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  .....
+}
+```
+When Form is submitted, react router call action function and reques is submitted.
+So we can access to it.
+
+Then, we connect this action to the route
+```{
+        path: '/order/new',
+        element: <CreateOrder />,
+        action: createOrderAction,
+      },
+```
 
 # Setaup and Start
 - npm install
